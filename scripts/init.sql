@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS aluno (
+  id SERIAL PRIMARY KEY,
+  nome TEXT NOT NULL,
+  email TEXT NOT NULL,
+  criado_em TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_aluno_email ON aluno (email);
+
+CREATE TABLE IF NOT EXISTS curso (
+  id SERIAL PRIMARY KEY,
+  nome TEXT NOT NULL
+);
+
+
+ALTER TABLE aluno DROP CONSTRAINT IF EXISTS fk_curso; -- deleta a constraint de fk_curso
+
+ALTER TABLE aluno
+ADD COLUMN IF NOT EXISTS curso_id INTEGER,
+ADD CONSTRAINT fk_curso FOREIGN KEY (curso_id) REFERENCES curso(id) ON DELETE SET NULL;
+
+CREATE TABLE IF NOT EXISTS professor (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL
+);
