@@ -1,8 +1,0 @@
-Nome: Gabriel Willian Bartmanovicz
-Atelie 15 - Grupo 3
-
-Perguntas
-1. Explique com suas palavras o funcionamento do models, controller e fale sobre endpoints no projeto 
-Os models definem o que cada entidade do projeto pode fazer. Nos models de aluno, professor e curso por exemplo, é definido as funções de CRUD para cada um, com os métodos de create, update, read e delete. 
-Os controllers expões as operações definidas nos models junto com a lógica de negócios necessária, tais funções são utilizadas no arquivo de routes e expostas em certo endpoint específico. 
-Cada endpoint é acompanhado com seu respectivo método HTTP, e a definição de qual url estará disponível cada função do controller.
